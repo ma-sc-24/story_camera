@@ -20,10 +20,12 @@ minSdkVersion 21
 
 ## Features
 Example with back camera in emulator
+
 ![Alt text](images/back_camera.PNG)
 
 
 Example with front camera in emulator
+
 ![Alt text](images/front_camera.PNG)
 
 ## Usage

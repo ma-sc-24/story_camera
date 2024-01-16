@@ -16,11 +16,16 @@ class MyApp extends StatelessWidget {
     return StoryCamera(
       onImageCaptured: (value) {
         file = File(value.path);
+
+        print(file);
+
         Navigator.push(context,
             MaterialPageRoute(builder: (_) => FileContent(file: file!)));
       },
       onVideoRecorded: (value) {
         file = File(value.path);
+
+        print(file);
 
         // Use your favorite video player to display it.
       },
@@ -29,6 +34,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Example to show image taken by camera.
 class FileContent extends StatelessWidget {
   final File file;
 

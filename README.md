@@ -31,24 +31,26 @@ Example with front camera in emulator
 ## Usage
 
 ```dart
- StoryCamera(
-      onImageCaptured: (value) {
-        file = File(value.path);
-        print(file!.path);
-      }, 
-      onVideoRecorded: (value) {
-        file = File(value.path);
-        print(file!.path);
-      }, 
-      onClosePressed: () {
-        // Most common
-        // Navigator.pop(context);
-      },
+File? file;
 
-      // Optional params
-      iconsColor: Colors.green,
-      recordingIconColor: Colors.red
-    )
+StoryCamera(
+  onImageCaptured: (value) {
+    file = File(value.path);
+    print(file!.path);
+  }, 
+  onVideoRecorded: (value) {
+    file = File(value.path);
+    print(file!.path);
+  }, 
+  onClosePressed: () {
+    // Most common
+    // Navigator.pop(context);
+  },
+  
+  // Optional params
+  iconsColor: Colors.green,
+  recordingIconColor: Colors.red
+);
 ```
 
 ## Additional information

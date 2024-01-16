@@ -39,7 +39,7 @@ class _StoryCameraState extends State<StoryCamera> {
     super.initState();
 
     initCamera().then((_) {
-      /// Initialize camera and choose the back camera as the initial camera in use.
+      /// Initialize and set back camera as initial camera in use by default.
       _controller = CameraController(_cameras![0], ResolutionPreset.max);
       _controller!.initialize().then((_) {
         setState(() {});
@@ -60,6 +60,11 @@ class _StoryCameraState extends State<StoryCamera> {
 
   @override
   Widget build(BuildContext context) {
+    /// Show an empty container while controller is initialized.
+    if (_controller == null || !_controller!.value.isInitialized) {
+      return Container();
+    }
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: SafeArea(
@@ -175,10 +180,7 @@ class _StoryCameraState extends State<StoryCamera> {
 
   /// Action after pressing the video button to stop recording.
   void _onStopButtonPressed() {
-    _stopVideoRecording().then((file) {
-      // Navigator.pop(context);
-      widget.onVideoRecorded!(file!);
-    });
+    _stopVideoRecording().then((file) => widget.onVideoRecorded!(file!));
   }
 
   /// Method that allow stop to recording when press video button.
@@ -198,10 +200,7 @@ class _StoryCameraState extends State<StoryCamera> {
 
   /// Action after pressing the photo button to take picture.
   void _onTakePictureButtonPressed() {
-    _takePicture().then((file) {
-      // Navigator.pop(context);
-      widget.onImageCaptured!(file!);
-    });
+    _takePicture().then((file) => widget.onImageCaptured!(file!));
   }
 
   /// Method that allow capture picture when press camera button.
@@ -220,7 +219,7 @@ class _StoryCameraState extends State<StoryCamera> {
     }
   }
 
-  /// Method that allow choose which camera you prefer, front or back camera.
+  /// Method that allow choose which camera you prefer, front or back.
   Future<void> _onNewCameraSelected(Cameras type) async {
     switch (type) {
       case Cameras.back:

@@ -5,13 +5,14 @@ A flutter package that show a customize camera (front and back) to take photos o
 As a `camera` dependency, you need to edit the `info.plist` file in iOS and `android/app/build.gradle` file.
 
 In iOS, if editing `info.plist` as text, you should add:
-[<key>NSCameraUsageDescription</key>
+
+<key>NSCameraUsageDescription</key>
 <string>your usage description here</string>
 <key>NSMicrophoneUsageDescription</key>
-<string>your usage description here</string>]
+<string>your usage description here</string>
 
 In Android, change the minimum Android sdk version to 21 (or higher) in your `android/app/build.gradle` file:
-[minSdkVersion 21]
+```minSdkVersion 21```
 
 ## Features
 Example with back camera in emulator
@@ -48,4 +49,4 @@ Example with front camera in emulator
 
 If you want to see more information about this package, I invite you to visit the GitHub repo.
 
-(https://dart.dev/guides/libraries/create-library-packages)
+https://dart.dev/guides/libraries/create-library-packages

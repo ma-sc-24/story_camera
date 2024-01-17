@@ -57,4 +57,4 @@ StoryCamera(
 
 If you want to see more information about this package, I invite you to visit the GitHub repo.
 
-https://dart.dev/guides/libraries/create-library-packages
+https://github.com/ma-sc-24/story_camera

@@ -1,6 +1,6 @@
 name: story_camera
 description: "A flutter package that show a customize camera (front and back) to take photos or record videos, similarly for create story in social media."
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/ma-sc-24/story_camera
 
 environment:
